@@ -1,0 +1,137 @@
+<body>
+
+<div  *ngIf="usuarios2 !=  ''">
+<h1>Lista de auditores/administradores</h1>
+<table id="customers">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apellido materno</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nombre de usuario</th>
+      <th scope="col">Email</th>
+      <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+        <tr *ngFor="let usuario of usuarios2">
+            <td>
+                {{usuario.userid}}
+            </td>
+            
+      
+            <td>       
+     {{usuario.nombre | uppercase}}
+            </td>
+    
+  <td>
+      {{usuario.apellidop | uppercase}}
+  </td>
+  
+  <td>
+      {{usuario.apellidom | uppercase}}
+  </td>  
+  
+  <td> 
+      {{usuario.tipo | uppercase}}
+  </td>
+  
+  <td>    
+        {{usuario.username | uppercase}}
+  </td>
+  <td>
+        {{usuario.email | uppercase}}     
+  </td>
+  <td>
+              <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+               Eliminar
+              </button>     
+          </td>
+          <td>
+                <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+                  Editar
+                </button>
+            </td>
+          </tr>
+  </tbody>
+</table>
+</div>
+<!-- <div *ngFor="let up of usuarioprincipal">
+    <div *ngIf="up.tipo ==  'admin'"> -->
+        <div  *ngIf="usuarios !=  ''">  
+      <h1> Lista de clientes</h1>
+      <table  id="customers">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido paterno</th>
+            <th scope="col">Apellido materno</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">Email</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Eliminar</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let usuario of usuarios">
+            
+                   <td>
+                      {{usuario.userid}}
+                  </td>
+      
+            <td> 
+           {{usuario.nombre | uppercase}}
+        </td>
+      
+          <td>
+            {{usuario.apellidop | uppercase}}
+        </td>
+      
+           <td>
+            {{usuario.apellidom | uppercase}}
+        </td>
+        
+        <td> 
+            {{usuario.tipo | uppercase}}
+        </td>
+      
+          <td> 
+              {{usuario.username | uppercase}}
+          </td>
+      
+             <td> 
+              {{usuario.email | uppercase}}
+          </td>
+      
+          <td> 
+           {{usuario.nombreempresa | uppercase}}
+       </td>
+      
+            <td>
+                    <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+                      Eliminar
+                    </button>
+              </td>
+      
+              <td>
+                      <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+                        Editar
+                      </button>
+                </td>
+      
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+
+  </body>

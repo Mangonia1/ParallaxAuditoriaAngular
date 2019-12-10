@@ -1,0 +1,96 @@
+<h1>Responder</h1>
+
+<div *ngIf="preguntas ==  ''">  
+<button (click)="this.terminarquis()"
+  class="btn btn btn-outline-warning btn-lg" >Terminar cuestionario</button>
+</div>
+<!-- =========================================-->
+
+<div *ngIf="preguntas !=  ''">  
+
+
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+
+<form  #form="ngForm" form class="border border-light p-5"  novalidate>
+ 
+    <div *ngFor="let preg of preguntas">  
+        <label class="text-info">  {{preg.preguntatxt | uppercase}}</label><br>  
+        <div class="form-group col-md-6" >
+            <input type="text" id="idrespuesta" name="idrespuesta[]" class="form-control  datoInput2" 
+            value="{{preg.id}}"  required placeholder="Respuesta" hidden>
+         </div>  
+        
+        <div *ngIf="preg.tiporespuesta ==  '1'">  
+          
+          <div class="form-group " >
+                <input type="text" id="respuesta" name="respuesta[]" class="form-control  datoInput" 
+                [(ngModel)]="preg.respuesta"  required placeholder="Respuesta">
+            </div>
+            </div>
+
+
+            <div *ngIf="preg.tiporespuesta ==  '2'"> 
+      
+
+      
+                <div class="form-group " >
+                    <input type="number" id="respuesta" name="respuesta[]" class="form-control  datoInput" 
+                    [(ngModel)]="preg.respuesta"  required min="1" max="5">
+                </div>
+                
+      
+      
+              <!-- <div class="form-group " > 
+                <div *ngFor = "let numero of numeros" >
+                <input 
+                type="radio"
+                name="calificaar"
+                value="{{numero}}"
+                (change)="radioChangeHandler($event)">
+                <label class="text-info">{{numero}}</label>
+                </div>
+<label class="text-info">Calificas con: <b>{{seleccionarnum}}</b></label>
+<input type="text" id="respuesta" name="respuesta[]" class="form-control  datoInput" 
+[(ngModel)]="preg.respuesta"  required [value]="seleccionarnum" hidden>
+</div> -->
+        </div>
+
+
+
+          <div *ngIf="preg.tiporespuesta ==  '3'">           
+
+
+              <div class="form-group ">
+                  <select class="form-control datoInput" id="respuesta" name="respuesta[]"
+                  [(ngModel)]="preg.respuesta" required >
+                    <option value="Verdadero">Verdadero</option>
+                    <option value="Falso">Falso</option>
+                  </select>
+                </div>
+
+                </div>
+
+       </div>
+ 
+       <div class="form-group">
+          <button [disabled]="!form.form.valid" (click)="this.terminarformu()"
+          class="btn btn btn-outline-info btn-lg">Agregar</button>
+         </div>
+
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<!-- =========================================-->
+
+

@@ -1,0 +1,61 @@
+<body>
+
+
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+
+
+
+<form form class="border border-light p-5" [formGroup]="myForm"  novalidate>
+  
+
+  
+    <div class="form-group " >
+        <label  class="text-info">Nombre de la empresa</label><br>
+        <input type="text" id="nombre" name="nombre" class="form-control" 
+        [(ngModel)]="empresa.nombre" placeholder="Nombre"
+        formControlName="nombre">
+     </div>
+     
+     <div class="form-group" >
+        <label  class="text-info">Giro de la empresa</label><br>
+       <input type="text" id="giro" name="giro" class="form-control" 
+       [(ngModel)]="empresa.giro" placeholder="giro"
+       formControlName="giro">
+     </div>
+     
+     
+     
+     <div class="form-group">
+     <button  [disabled]="myForm.invalid"  (click)="this.agregarempresa()"
+     class="btn btn btn-outline-info btn-lg">Agregar</button>
+     </div>
+
+
+
+
+
+    
+
+ 
+
+
+
+</form>
+
+
+</div>
+<div class="alert alert-info" role="alert" *ngIf="myForm.invalid">
+    Procure llenar <a href="#" class="alert-link">TODOS</a> los campos
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>

@@ -1,0 +1,114 @@
+<h1>Lista de auditorias</h1>
+
+<div *ngFor="let up of usuarioprincipal">
+    <div *ngIf="up.id !=  0"> 
+        
+
+<table  id="customers">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre del cuestionario</th>
+      <th scope="col">Creador de auditoria</th>
+      <th scope="col">Auditor</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Departamento</th>
+
+      <th *ngIf="up.tipo ==  'Administrador' " scope="col">Eliminar</th>
+      <th *ngIf="up.tipo ==  'Administrador' " scope="col">Editar</th>
+      <th  *ngIf="up.tipo ==  'Administrador'  || up.tipo ==  'Auditor' " scope="col">Agregar pregunta</th>
+      <th  *ngIf="up.tipo ==  'Administrador'  || up.tipo ==  'Auditor' " scope="col">Responder cuestionario</th>
+      <th scope="col">Ver resultados</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr *ngFor="let quiss of cuestionario">
+             <td>
+                {{quiss.id}}
+            </td>
+
+      <td> 
+     {{quiss.nombrecuestionario | uppercase}}
+      </td>
+
+    <td>
+      {{quiss.creador | uppercase}}
+  </td>
+
+     <td>
+      {{quiss.usernameauditor | uppercase}}
+  </td>
+
+  <td>
+  {{quiss.empresa | uppercase}}
+</td>
+
+<td>
+{{quiss.departamento | uppercase}}
+</td>
+  
+      <td *ngIf="up.tipo ==  'Administrador' ">
+              
+              <button (click)='this.eliminarquis(quiss.id)' type="button" class="btn btn-outline-danger btn-sm">
+                  Eliminar
+              </button>
+              
+        </td>
+
+        <td  *ngIf="up.tipo ==  'Administrador' ">
+                
+                <button (click)='this.editarquis(quiss.id)' type="button" class="btn btn-outline-success btn-sm">
+                    Editar
+                </button>
+              
+          </td>
+
+          <td  *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Auditor' ">
+                  
+                      <div *ngIf="quiss.terminareditarcuestionario ==  '1'">
+                  <button (click)='this.agregarpregunta(quiss.id, quiss.nombrecuestionario)' type="button" class="btn btn-outline-primary btn-sm">
+                      Agregar  
+                  </button>
+                </div>
+                <div *ngIf="quiss.terminareditarcuestionario !=  '1'">
+                    <button (click)='this.agregarpregunta(quiss.id, quiss.nombrecuestionario)'
+                     type="button" class="btn btn-outline-primary btn-sm" disabled>
+                        Agregar
+                    </button>
+                  </div>
+                
+            </td>
+
+            <td *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Auditor' ">
+                    
+                        <div *ngIf="quiss.terminareditarcuestionario ==  '2' && quiss.terminado ==  '1' ">
+                    <button (click)='this.responderquiss(quiss.id, quiss.nombrecuestionario)' type="button" class="btn btn-outline-warning btn-sm">
+                        Responder
+                    </button>
+                    </div>
+                    <div *ngIf="quiss.terminareditarcuestionario !=  '2' || quiss.terminado !=  '1' ">
+                        <button (click)='this.responderquiss(quiss.id, quiss.nombrecuestionario)'
+                         type="button" class="btn btn-outline-warning btn-sm" disabled>
+                            Responder
+                        </button>
+                        </div>
+                    
+              </td>
+
+              <td>
+                      <div *ngIf=" quiss.terminado !=  '1' ">
+                          <button (click)='this.veresul(quiss.id, quiss.nombrecuestionario)'
+                           type="button" class="btn btn-outline-info btn-sm" >
+                             Ver
+                          </button>
+                          </div>
+                </td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+      </div>

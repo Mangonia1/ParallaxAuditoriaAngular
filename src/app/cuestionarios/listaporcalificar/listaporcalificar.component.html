@@ -1,0 +1,35 @@
+<h1>Calificar</h1>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Pregunta</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+  
+      <td>
+          <div *ngFor="let preg of preguntas">
+              {{preg.preguntatxt | uppercase}}
+              <form [formGroup]="myForm" novalidate>  
+                  <div class="form-group col-md-6">
+                      <label >Respondio: </label>
+                      <select class="form-control" id="calificar" name="calificar"
+                      [(ngModel)]="preg.calificar"
+                       formControlName="calificar" >
+                        <option value="Bien">Bien</option>
+                        <option value="Mal">Mal</option>
+                      </select>
+                    </div>
+
+                 <div class="form-group">
+                 <button [disabled]="myForm.invalid" (click)="this.guardarpregunta(preg.id,preg.calificar)"
+                 class="btn btn btn-outline-dark btn-lg">Agregar</button>
+                </div>
+                </form>
+      
+            </div>
+        </td>
+    </tr>
+  </tbody>
+</table>

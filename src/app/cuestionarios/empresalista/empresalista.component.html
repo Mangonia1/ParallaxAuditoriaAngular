@@ -1,0 +1,95 @@
+<h1>Lista de empresa</h1>
+
+<div *ngFor="let up of usuarioprincipal">
+    <div *ngIf="up.id !=  0"> 
+        
+
+<table id="customers">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre de la empresa</th>
+      <th scope="col">Giro de la empresa</th>
+      <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr *ngFor="let emp of empresa">
+             <td>
+
+                {{emp.id}}
+
+            
+            </td>
+
+      <td> 
+
+  
+     {{emp.nombre | uppercase}}
+
+  
+  </td>
+
+    <td>
+
+      
+      {{emp.giro | uppercase}}
+
+  
+  </td>
+
+  
+      <td>
+
+              <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
+              <button (click)='this.eliminarempresa(emp.id)' type="button" class="btn btn-outline-danger btn-sm">
+                  Eliminar {{emp.nombre}}
+              </button>
+              </div>
+
+        </td>
+
+        <td>
+
+                <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
+                <button (click)='this.editarempres(emp.id)' type="button" class="btn btn-outline-success btn-sm">
+                    Editar {{emp.giro}}
+                </button>
+              </div>
+
+          </td>
+
+          
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      </div>

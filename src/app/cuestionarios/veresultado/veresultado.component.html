@@ -1,0 +1,77 @@
+<div id="listainfo" >
+  <br> 
+  <table id="customers2">
+    <thead>
+      <tr>
+        <th>Fecha y hora: </th>
+        <th> {{cuesfecha}}</th>
+      </tr>
+    </thead>
+        <tbody>        
+            <tr >
+                   <td>
+                      Auditoria:
+                  </td>
+                  <td >
+                      {{cuesaudi}}
+                    </td>
+              </tr>
+
+              <tr >
+                  <td>
+                     Empresa:
+                 </td>
+                 <td >
+                     {{cuesnomempresa}}
+                   </td>
+             </tr>
+
+             <tr >
+                <td>
+                  Area:
+               </td>
+               <td >
+                   {{cuesnomarea}}
+                 </td>
+           </tr>
+
+           <tr >
+              <td>
+                Auditor:
+             </td>
+             <td >
+                 {{cuesnomauditor}}
+               </td>
+         </tr>
+           
+        </tbody>
+      </table>
+           <br>
+
+  <table id="customers">
+    <thead>
+      <tr>
+        <th scope="col">Folio</th>
+        <th scope="col">Pregunta</th>
+        <th scope="col">Conformidad</th>
+      </tr>
+    </thead>
+    <tbody>        
+        <tr *ngFor="let preg of preguntas">
+               <td>
+                  {{preg.id}} 
+              </td>
+        <td> 
+       {{preg.preguntatxt | uppercase}}
+    </td>
+      <td>
+        {{preg.respuesta}}
+    </td>   
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+<br>
+<button  (click)="this.generar()"
+class="btn btn btn-outline-danger btn-lg">Generar pdf</button>

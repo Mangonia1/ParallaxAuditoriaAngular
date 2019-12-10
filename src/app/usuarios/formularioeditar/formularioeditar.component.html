@@ -1,0 +1,190 @@
+<body>
+
+
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+
+
+
+<form form class="border border-light p-5" [formGroup]="myForm"  novalidate>
+  <div class="row">
+  <div class="col" >
+      <label  class="text-info">Nombre</label><br>  
+   <input type="text" id="nombre" name="nombre" class="form-control" 
+   [(ngModel)]="usuario.nombre" placeholder="Nombre" formControlName="nombre">
+</div>
+<div class="col">
+    <label  class="text-info">Apellido paterno</label><br>
+   <input type="text" id="apellidop" name="apellidop" class="form-control" 
+   [(ngModel)]="usuario.apellidop" placeholder="Apellido paterno"
+    formControlName="apellidop" >
+ </div>
+</div>
+
+
+<div class="row">
+ <div class="col">
+    <label  class="text-info">Apellido materno</label><br>
+   <input type="text" id="apellidom" name="apellidom" class="form-control" 
+   [(ngModel)]="usuario.apellidom" placeholder="Apellido materno"
+    formControlName="apellidom">
+ </div>
+ <div class="col">
+    <label  class="text-info">Tipo de usuario</label><br>
+    <select class="form-control" id="tipo" name="tipo"
+     [(ngModel)]="usuario.tipo" 
+     formControlName="tipo" >
+      <option value="Auditor">Auditor</option>
+      <option value="Empresa">Empresa</option>
+      <option value="Administrador">Administrador</option>
+    </select>
+  </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col">
+        <label  class="text-info">Username</label><br>
+      <input type="text" id="username" name="username" class="form-control" 
+      [(ngModel)]="usuario.username" placeholder="Username"
+       formControlName="username">
+    </div>
+    <div class="col">
+        <label  class="text-info">Email</label><br>
+      <input type="text" id="email" name="email" class="form-control" 
+      [(ngModel)]="usuario.email" placeholder="Email"
+       formControlName="email">
+    </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col">
+    <label  class="text-info">Empresa</label><br>
+  <select class="form-control" id="idempresa" name="idempresa"
+   [(ngModel)]="usuario.idempresa" formControlName="idempresa">
+   <option  value="null">
+    Sin empresa
+  </option>
+   <option *ngFor="let emp of empresa" [value]="emp.id">
+      {{emp.nombre}}
+    </option>
+  </select>
+</div> 
+<div class="col">
+    <label  class="text-info">Password</label><br>
+  <input type="text" id="password" name="password" class="form-control" 
+  [(ngModel)]="usuario.password" type="password" placeholder="Password"
+   formControlName="password">
+</div></div>
+
+ 
+<br>
+
+<div class="form-group">
+<button  [disabled]="myForm.invalid" (click)="this.editarusuario()"
+class="btn btn btn-outline-info btn-lg">Agregar</button>
+</div>
+</form>
+
+
+</div>
+<div class="alert alert-info" role="alert" *ngIf="myForm.invalid">
+    Procure llenar <a href="#" class="alert-link">TODOS</a> los campos
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+<!-- <form  [formGroup]="myForm"  novalidate>
+    <div class="form-group col-md-6" >
+     <label >Nombre</label>
+     <input type="text" id="nombre" name="nombre" class="form-control" 
+     [(ngModel)]="usuario.nombre" placeholder="Nombre" formControlName="nombre">
+  </div>
+   <div class="form-group col-md-6">
+     <label >Apellido paterno</label>
+     <input type="text" id="apellidop" name="apellidop" class="form-control" 
+     [(ngModel)]="usuario.apellidop" placeholder="Apellido paterno"
+      formControlName="apellidop" >
+   </div>
+   <div class="form-group col-md-6">
+     <label >Apellido materno</label>
+     <input type="text" id="apellidom" name="apellidom" class="form-control" 
+     [(ngModel)]="usuario.apellidom" placeholder="Apellido materno"
+      formControlName="apellidom">
+   </div>
+   <div class="form-group col-md-6">
+      <label >Tipo de usuario</label>
+      <select class="form-control" id="tipo" name="tipo"
+       [(ngModel)]="usuario.tipo" 
+       formControlName="tipo" >
+        <option value="Auditor">Auditor</option>
+        <option value="Empresa">Empresa</option>
+        <option value="Administrador">Administrador</option>
+      </select>
+    </div>
+  <div class="form-group col-md-6">
+      <label >Username</label>
+    <input type="text" id="username" name="username" class="form-control" 
+    [(ngModel)]="usuario.username" placeholder="Username"
+     formControlName="username">
+  </div>
+  <div class="form-group col-md-6">
+    <label >Email</label>
+    <input type="text" id="email" name="email" class="form-control" 
+    [(ngModel)]="usuario.email" placeholder="Email"
+     formControlName="email">
+  </div>
+  <div class="form-group col-md-6">
+    <label >Empresa</label>
+    <select class="form-control" id="idempresa" name="idempresa"
+     [(ngModel)]="usuario.idempresa" formControlName="idempresa">
+
+     <option  value="null">
+      Sin empresa
+    </option>
+
+      <option *ngFor="let emp of empresa" [value]="emp.id">
+        {{emp.nombre}}
+      </option>
+    </select>
+  </div> 
+  <div class="form-group col-md-6">
+    <label >Password</label>
+    <input type="text" id="password" name="password" class="form-control" 
+    [(ngModel)]="usuario.password" type="password" placeholder="Password"
+     formControlName="password">
+  </div>
+  <div class="form-group">
+  <button  [disabled]="myForm.invalid" (click)="this.editarusuario()"
+  class="btn btn btn-outline-dark btn-lg">Agregar</button>
+  </div>
+  <br>  
+    <div class="alert alert-dark" role="alert" *ngIf="myForm.invalid">
+      Procure llenar <a href="#" class="alert-link">TODOS</a> los campos
+    </div>
+  </form>
+  <br>
+  <br> -->

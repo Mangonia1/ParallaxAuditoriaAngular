@@ -1,0 +1,87 @@
+<body>
+
+
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+
+
+                        <form  #form="ngForm"  novalidate>  
+                            <div class="form-group col-md-6">
+                              <input type="text" id="idpreguntas" name="idpreguntas" class="form-control" 
+                              [(ngModel)]="pregunta.idpreguntas"  type="hidden">
+                            </div>
+                            <div class="form-group " >
+                               <label class="text-info">Pregunta</label><br>
+                               <input type="text" id="preguntatxt" name="preguntatxt" class="form-control" 
+                               [(ngModel)]="pregunta.preguntatxt"  required placeholder="Nombre">
+                            </div>
+                            <div class="form-group">
+                              <label class="text-info">Tipo de respuesta</label><br>
+                              <select class="form-control" id="tiporespuesta" name="tiporespuesta"
+                               [(ngModel)]="pregunta.tiporespuesta" required>
+                                <option value="1">Abierta</option>
+                                <option value="2">Calificar del 1-5</option>
+                                <option value="3">Verdadero/Falso</option>
+                              </select>
+                            </div>
+                           <div class="form-group">
+                           <button (click)="this.editarpregunta(pregunta.idcuestionario)"
+                           class="btn btn btn-outline-info btn-lg" [disabled]="!form.form.valid">Agregar</button>
+                          </div>
+                          </form>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<form  #form="ngForm"  novalidate>  
+  <div class="form-group col-md-6">
+    <input type="text" id="idpreguntas" name="idpreguntas" class="form-control" 
+    [(ngModel)]="pregunta.idpreguntas"  type="hidden">
+  </div>
+  <div class="form-group col-md-6" >
+     <label >Pregunta</label>
+     <input type="text" id="preguntatxt" name="preguntatxt" class="form-control" 
+     [(ngModel)]="pregunta.preguntatxt"  required placeholder="Nombre">
+  </div>
+  <div class="form-group col-md-6">
+    <label >Tipo de respuesta</label>
+    <select class="form-control" id="tiporespuesta" name="tiporespuesta"
+     [(ngModel)]="pregunta.tiporespuesta" required>
+      <option value="1">Abierta</option>
+      <option value="2">Calificar del 1-5</option>
+      <option value="3">Verdadero/Falso</option>
+    </select>
+  </div>
+ <div class="form-group">
+ <button (click)="this.editarpregunta(pregunta.idcuestionario)"
+ class="btn btn btn-outline-dark btn-lg" [disabled]="!form.form.valid">Agregar</button>
+</div>
+</form> -->
+
+
