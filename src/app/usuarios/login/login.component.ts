@@ -12,10 +12,11 @@ export class LoginComponent implements OnInit {
 
   email:string;
   password:string;
-   variablechida;
   usuario:Usuario;
   especial:Usuario;
   usuario2:Usuario[];
+  correo:string;
+  Contrasena:string;
 
   constructor(private navegar: Router,private usuarios:UsuariosService) { }
 

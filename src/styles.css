@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
+
+body{
+  background-color: #bfcfd5;
+}
+
+div{
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+}
+
+p{
+  font-family: 'PT Serif', serif;
+  font-weight: 300;
+  font-size: 12px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+a{
+  color: #191919 !important;
+}
+
+.shadow{
+  box-shadow: -3px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.no-padding{ padding: 0 !important; }
+
+.padding-sm{ padding: 20px; }
+
+.no-margin{ margin: 0 !important; }
+
+.shadow{ box-shadow: -3px 4px 15px rgba(0, 0, 0, 0.15); }
+
+.font{ font-family: 'PT Serif', serif; }
+
+.font-secondary{ font-family: 'Playfair', sans-serif; }
+
+.title{
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.light{
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.bold{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.normal{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.white{
+  color: white !important;
+}
+
+.blank-space{
+  width: 100%;
+  height: 90px;
+}
+
+.blank-space-sm{
+  width: 100%;
+  height: 30px;
+}
+
+.blank-space-md{
+  width: 100%;
+  height: 60px;
+}
+
+.btn-black{
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: transparent;
+  border: 2px solid #191919;
+  border-radius: 0;
+}
+
+.btn-black:hover{
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #191919;
+  border: 2px solid #191919;
+  border-radius: 0;
+}
+
+.btn-black-alt{
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #191919;
+  border: 2px solid #191919;
+  border-radius: 0;
+  color: #fff;
+}
+
+.btn-black-alt:hover{
+  color: #191919;;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #fff;
+  border: 2px solid #191919;
+  border-radius: 0;
+}
+
+.form-control{ font-family: 'Playfair', sans-serif !important; font-size: 10px; }
+
+.card{
+  border-radius: 5px !important;
+  border: none;
+}

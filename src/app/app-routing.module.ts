@@ -20,8 +20,10 @@ import { LoginGuard } from './login.guard';
 import { RolGuard } from './rol.guard';
 import { RolGuard2 } from './rol.guard2';
 import { RolGuard3 } from './rol.guard3';
+import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
+    {path: 'menu',component: MenuComponent},
     //-----------------RUTAS USUARIO--------------------
     {path: '',component: LoginComponent},
     {path: 'formulariousuario',component: FormularioComponent, canActivate:[LoginGuard, RolGuard]},
