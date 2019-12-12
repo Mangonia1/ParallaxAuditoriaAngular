@@ -44,11 +44,11 @@
         {{usuario.email}}     
       </td>
       <td class="d-flex justify-content-around">
-        <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-          Eliminar
-        </button>
         <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
           Editar
+        </button>
+        <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+          Eliminar
         </button>
       </td>
     </tr>
@@ -107,11 +107,11 @@
           {{usuario.nombreempresa | uppercase}}
         </td>
         <td>
-          <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-            Eliminar
-          </button>
           <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
             Editar
+          </button>
+          <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+            Eliminar
           </button>
         </td>
       </tr>
