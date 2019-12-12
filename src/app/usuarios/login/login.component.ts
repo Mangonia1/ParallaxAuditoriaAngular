@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
       this.navegar.navigate(['']);
 
     this.usuarios.Logininfo(this.email).subscribe(data => {
-       this.usuario = data;
+       this.usuario = data[0];
+       console.log(data);
         console.log('id '+this.usuario.id);
+       this.Empezar(this.usuario.id,this.usuario.username);
     },error => {
       console.log(JSON.stringify(error));
       console.log('Usuario o contraseña invalidos');
@@ -60,8 +62,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('tipo',this.especial.tipo)
     localStorage.setItem('miid',id);
     localStorage.setItem('username',username);
-    window.location.replace("listacuestionario");
-    
+    this.navegar.navigate(['/menu']);
   }  
 
 }
