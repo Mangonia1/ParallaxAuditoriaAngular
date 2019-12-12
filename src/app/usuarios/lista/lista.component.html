@@ -1,7 +1,7 @@
 <div>
   <div class="blank-space"></div>
   <div class="row">
-    <h1 class="title">Todas las auditorías</h1>
+    <h1 class="title">Auditores</h1>
   </div>
   <div class="blank-space-sm"></div>
   <div class="row">
@@ -31,19 +31,19 @@
           {{usuario.userid}}
       </td>
       <td>       
-        {{usuario.nombre | uppercase}} {{usuario.apellidop | uppercase}} {{usuario.apellidom | uppercase}}
+        {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
       </td>
       <td>
-        {{usuario.tipo | uppercase}}
+        {{usuario.tipo}}
       </td>
   
       <td>
-        {{usuario.username | uppercase}}
+        {{usuario.username}}
       </td>
       <td>
-        {{usuario.email | uppercase}}     
+        {{usuario.email}}     
       </td>
-      <td>
+      <td class="d-flex justify-content-around">
         <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
           Eliminar
         </button>
@@ -58,7 +58,7 @@
 <!-- Lista de clientes -->
 <div>  
   <div class="blank-space"></div>
-  <h1 class="title"> Lista de clientes</h1>
+  <h1 class="title">Clientes</h1>
   <div class="row">
     <div class="col-10">
         <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
