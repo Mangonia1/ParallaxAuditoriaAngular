@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   
-  iniciarSesion(){
+  inicioSesion(){
     this.usuarios.Login(this.email,this.password).subscribe(token => {
       localStorage.setItem('token', token['token']);
       localStorage.setItem('usuario',this.email);

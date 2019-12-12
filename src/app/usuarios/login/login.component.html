@@ -17,14 +17,14 @@
                 <div *ngIf="email.errors.minlength">El email debe ser de al menos 4 caracteres.</div>
               </div>
               <div class="form-group">
-                <input type="password" #password="ngModel" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="Contrasena"
-                  required minlength="5">
+                <input type="password" #password="ngModel" id="password" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="Contrasena"
+                  required minlength="4">
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="password.touched && !password.valid">
                 <div *ngIf="password.errors.required">La contraseña es requerida</div>
-                <div *ngIf="password.errors.minlength">La contraseña debe ser de al menos 5 caracteres.</div>
+                <div *ngIf="password.errors.minlength">La contraseña debe ser de al menos 4 caracteres.</div>
               </div>
-              <button type="submit" class="btn btn-sm btn-black btn-block uppercase" (click)="InicioSesion()">Entrar</button>
+              <button type="submit" class="btn btn-sm btn-black btn-block uppercase" (click)="inicioSesion()">Entrar</button>
               <div class="form-group">
                 <a routerLink="/" href="" class="">Eres nuevo?</a>
               </div>
