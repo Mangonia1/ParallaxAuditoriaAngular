@@ -10,19 +10,19 @@
                 Algo falta!
               </div>
               <div class="form-group">
-                <input type="email" #email="ngModel" id="email" name="email" class="form-control" placeholder="Correo" [(ngModel)]="correo"  required>
+                <input type="email" #emailInput="ngModel" id="email" name="email" class="form-control" placeholder="Correo" [(ngModel)]="email"  required>
               </div>
-              <div class="alert alert-danger" role="alert" *ngIf="email.touched && !email.valid">
-                <div *ngIf="email.errors.required">El email es requerido</div>
-                <div *ngIf="email.errors.minlength">El email debe ser de al menos 4 caracteres.</div>
+              <div class="alert alert-danger" role="alert" *ngIf="emailInput.touched && !emailInput.valid">
+                <div *ngIf="emailInput.errors.required">El email es requerido</div>
+                <div *ngIf="emailInput.errors.minlength">El email debe ser de al menos 4 caracteres.</div>
               </div>
               <div class="form-group">
-                <input type="password" #password="ngModel" id="password" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="Contrasena"
+                <input type="password" #passwordInput="ngModel" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="password"
                   required minlength="4">
               </div>
-              <div class="alert alert-danger" role="alert" *ngIf="password.touched && !password.valid">
-                <div *ngIf="password.errors.required">La contraseña es requerida</div>
-                <div *ngIf="password.errors.minlength">La contraseña debe ser de al menos 4 caracteres.</div>
+              <div class="alert alert-danger" role="alert" *ngIf="passwordInput.touched && !passwordInput.valid">
+                <div *ngIf="passwordInput.errors.required">La contraseña es requerida</div>
+                <div *ngIf="passwordInput.errors.minlength">La contraseña debe ser de al menos 4 caracteres.</div>
               </div>
               <button type="submit" class="btn btn-sm btn-black btn-block uppercase" (click)="inicioSesion()">Entrar</button>
               <div class="form-group">
