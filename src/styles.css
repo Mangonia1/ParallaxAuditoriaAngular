@@ -129,3 +129,12 @@ a{
   border-radius: 5px !important;
   border: none;
 }
+
+input:focus{
+  box-shadow: none;
+  border: 1px solid #191919;
+}
+
+input:active{
+  border: 1px solid #191919;
+}
