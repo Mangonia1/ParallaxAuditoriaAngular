@@ -20,7 +20,7 @@
                 <input type="password" #passwordInput="ngModel" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="password"
                   required minlength="4">
               </div>
-              <div class="alert alert-danger" role="alert" *ngIf="passwordInput.touched && !passwordInput.valid">
+              <div (keydown.enter)="inicioSesion()" class="alert alert-danger" role="alert" *ngIf="passwordInput.touched && !passwordInput.valid">
                 <div *ngIf="passwordInput.errors.required">La contraseña es requerida</div>
                 <div *ngIf="passwordInput.errors.minlength">La contraseña debe ser de al menos 4 caracteres.</div>
               </div>

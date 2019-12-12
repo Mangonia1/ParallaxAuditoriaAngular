@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import Ws from '@adonisjs/websocket-client';
 //Se Define la direccion del socket
 //no funciona con esta linea de ws
- const ws = Ws('ws://127.0.0.1:3333');
+ const ws = Ws('ws://192.168.1.82:3333');
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +24,13 @@ export class UsuariosService {
 
 
 
-  private vari1:string = "http://127.0.0.1:3333/usuario/eliminar";
-  private vari2:string = "http://127.0.0.1:3333/usuario/veruno";
-  private vari3:string = "http://127.0.0.1:3333/usuario/editar";
+  private vari1:string = "http://192.168.1.82:3333/usuario/eliminar";
+  private vari2:string = "http://192.168.1.82:3333/usuario/veruno";
+  private vari3:string = "http://192.168.1.82:3333/usuario/editar";
 
-  private url:string = "http://127.0.0.1:3333/";
-  private url2:string = "http://127.0.0.1:3333/verusua";
-  private url3:string = "http://127.0.0.1:3333/usuarioespecial";
+  private url:string = "http://192.168.1.82:3333/";
+  private url2:string = "http://192.168.1.82:3333/verusua";
+  private url3:string = "http://192.168.1.82:3333/usuarioespecial";
 
   constructor(private httpclient:HttpClient) {
     //Se conecta
@@ -123,7 +123,7 @@ changeMessage2(msg) {
 
 
   agregarUsuario(usuario) {
-    return this.httpclient.post("http://127.0.0.1:3333/usuario/guardar",usuario,
+    return this.httpclient.post("http://192.168.1.82:3333/usuario/guardar",usuario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -133,12 +133,12 @@ changeMessage2(msg) {
 
       getusuario(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>("http://127.0.0.1:3333/usuario/ver");
+        return this.httpclient.get<Usuario[]>("http://192.168.1.82:3333/usuario/ver");
       }
 
       getusuariosinempresa(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>("http://127.0.0.1:3333/usuario/versinempresa");
+        return this.httpclient.get<Usuario[]>("http://192.168.1.82:3333/usuario/versinempresa");
       }
 
       destruirUsuario(id): Observable<void>

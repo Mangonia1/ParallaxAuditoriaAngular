@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import Ws from '@adonisjs/websocket-client';
 //Se Define la direccion del socket
 //no funciona con esta linea de ws
- const ws = Ws('ws://127.0.0.1:3333');
+ const ws = Ws('ws://192.168.1.82:3333');
 
 @Injectable({
   providedIn: 'root'
@@ -30,26 +30,26 @@ export class CuestionariosService {
    }
 
 
-  private vari1:string = "http://127.0.0.1:3333/cuestionario/eliminar";
-  private vari11:string = "http://127.0.0.1:3333/empresa/eliminar";
-  private vari2:string = "http://127.0.0.1:3333/cuestionario/veruno";
-  private vari22:string = "http://127.0.0.1:3333/empresa/veruno";
-  private vari222:string = "http://127.0.0.1:3333/pregunta/veruno";
-  private vari3:string = "http://127.0.0.1:3333/cuestionario/editar";
-  private vari33:string = "http://127.0.0.1:3333/empresa/editar";
-  private vari333:string = "http://127.0.0.1:3333/pregunta/editar";
+  private vari1:string = "http://192.168.1.82:3333/cuestionario/eliminar";
+  private vari11:string = "http://192.168.1.82:3333/empresa/eliminar";
+  private vari2:string = "http://192.168.1.82:3333/cuestionario/veruno";
+  private vari22:string = "http://192.168.1.82:3333/empresa/veruno";
+  private vari222:string = "http://192.168.1.82:3333/pregunta/veruno";
+  private vari3:string = "http://192.168.1.82:3333/cuestionario/editar";
+  private vari33:string = "http://192.168.1.82:3333/empresa/editar";
+  private vari333:string = "http://192.168.1.82:3333/pregunta/editar";
 
-  private vari4:string = "http://127.0.0.1:3333/pregunta/eliminar";
+  private vari4:string = "http://192.168.1.82:3333/pregunta/eliminar";
 
-  private vari44:string = "http://127.0.0.1:3333/cuestionario/terminarcuestionario";
-  private vari444:string = "http://127.0.0.1:3333/cuestionario/terminareditar";
-  private vari5:string = "http://127.0.0.1:3333/pregunta/ver/visible";
-  private vari6:string = "http://127.0.0.1:3333/pregunta/ver/norespondida";
-  private vari66:string = "http://127.0.0.1:3333/pregunta/ver/nocalificada";
-  private vari666:string = "http://127.0.0.1:3333/pregunta/veresultado";
-  private vari7:string = "http://127.0.0.1:3333/pregunta/responder";
-  private vari77:string = "http://127.0.0.1:3333/pregunta/calificar";
-  private url3:string = "http://127.0.0.1:3333/cuestionario/ver";
+  private vari44:string = "http://192.168.1.82:3333/cuestionario/terminarcuestionario";
+  private vari444:string = "http://192.168.1.82:3333/cuestionario/terminareditar";
+  private vari5:string = "http://192.168.1.82:3333/pregunta/ver/visible";
+  private vari6:string = "http://192.168.1.82:3333/pregunta/ver/norespondida";
+  private vari66:string = "http://192.168.1.82:3333/pregunta/ver/nocalificada";
+  private vari666:string = "http://192.168.1.82:3333/pregunta/veresultado";
+  private vari7:string = "http://192.168.1.82:3333/pregunta/responder";
+  private vari77:string = "http://192.168.1.82:3333/pregunta/calificar";
+  private url3:string = "http://192.168.1.82:3333/cuestionario/ver";
 
 
 
@@ -118,7 +118,7 @@ changeMessage2(msg) {
 }
 
   agregarEmpresa(empresa) {
-    return this.httpclient.post("http://127.0.0.1:3333/empresa/guardar",empresa,
+    return this.httpclient.post("http://192.168.1.82:3333/empresa/guardar",empresa,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -128,7 +128,7 @@ changeMessage2(msg) {
 
       getEmpresa(): Observable<Empresa[]>
       {
-        return this.httpclient.get<Empresa[]>("http://127.0.0.1:3333/empresa/ver");
+        return this.httpclient.get<Empresa[]>("http://192.168.1.82:3333/empresa/ver");
       }
 
       getEmpresauno(id): Observable<Empresa>
@@ -170,7 +170,7 @@ changeMessage2(msg) {
 
     
   agregarCuestionario(cuestionario) {
-    return this.httpclient.post("http://127.0.0.1:3333/cuestionario/guardar",cuestionario,
+    return this.httpclient.post("http://192.168.1.82:3333/cuestionario/guardar",cuestionario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ changeMessage2(msg) {
 
       getCuestionarioadmin(): Observable<Cuestionario[]>
       {
-        return this.httpclient.get<Cuestionario[]>("http://127.0.0.1:3333/cuestionario/veradmin");
+        return this.httpclient.get<Cuestionario[]>("http://192.168.1.82:3333/cuestionario/veradmin");
       }
 
       getCuestionario(id, username): Observable<Cuestionario[]>
@@ -248,7 +248,7 @@ changeMessage2(msg) {
           }
 
           agregarPregunta(pregunta) {
-            return this.httpclient.post("http://127.0.0.1:3333/pregunta/guardar",pregunta,
+            return this.httpclient.post("http://192.168.1.82:3333/pregunta/guardar",pregunta,
               {
                 headers: new HttpHeaders({
                   'Content-Type': 'application/json'

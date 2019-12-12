@@ -5,10 +5,10 @@
   </div>
   <div class="blank-space-sm"></div>
   <div class="row">
-    <div class="col-10">
+    <div class="col-8 col-lg-10">
         <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
     </div>
-    <div class="col-2">
+    <div class="col-4 col-lg-2">
       <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
     </div>
   </div>
@@ -18,11 +18,9 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Tipo</th>
       <th scope="col">Usuario</th>
-      <th scope="col">Correo</th>
-      <th scope="col"></th>
-      
+      <th scope="col" class="d-none d-md-table-cell">Correo</th>
+      <th scope="col" class="d-none d-md-table-cell">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -34,36 +32,34 @@
         {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
       </td>
       <td>
-        {{usuario.tipo}}
-      </td>
-  
-      <td>
         {{usuario.username}}
       </td>
-      <td>
+      <td class="d-none d-md-table-cell">
         {{usuario.email}}     
       </td>
-      <td class="d-flex justify-content-around">
-        <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-          Editar
-        </button>
-        <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-          Eliminar
-        </button>
+      <td class="d-none d-md-table-cell">
+        <div class="d-flex justify-content-around">
+          <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+            Editar
+          </button>
+          <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+            Eliminar
+          </button>
+        </div>
       </td>
     </tr>
   </tbody>
 </table>
 </div>
-<!-- Lista de clientes -->
+<!-- Lista de empresas -->
 <div>  
   <div class="blank-space"></div>
-  <h1 class="title">Clientes</h1>
+  <h1 class="title">Empresas</h1>
   <div class="row">
-    <div class="col-10">
+    <div class="col-8 col-lg-10">
         <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
     </div>
-    <div class="col-2">
+    <div class="col-4 col-lg-2">
       <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
     </div>
   </div>
@@ -76,8 +72,8 @@
         <th scope="col">Nombre</th>
         <th scope="col">Tipo</th>
         <th scope="col">Usuario</th>
-        <th scope="col">Correo</th>
-        <th scope="col"></th>
+        <th scope="col" class="d-none  d-md-table-cell">Correo</th>
+        <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
       </tr>
     </thead>
     <tbody>
@@ -86,33 +82,35 @@
           {{usuario.userid}}
         </td>
         <td> 
-          {{usuario.nombre | uppercase}}
+          {{usuario.nombre}}
         </td>
         <td>
-          {{usuario.apellidop | uppercase}}
+          {{usuario.apellidop}}
         </td>
         <td>
-          {{usuario.apellidom | uppercase}}
+          {{usuario.apellidom}}
         </td>        
         <td> 
-          {{usuario.tipo | uppercase}}
+          {{usuario.tipo}}
         </td>
         <td>
-          {{usuario.username | uppercase}}
+          {{usuario.username}}
         </td>
         <td> 
-          {{usuario.email | uppercase}}
+          {{usuario.email}}
         </td>
-        <td>
-          {{usuario.nombreempresa | uppercase}}
+        <td class="d-none  d-md-table-cell">
+          {{usuario.nombreempresa}}
         </td>
-        <td>
-          <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-            Editar
-          </button>
-          <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-            Eliminar
-          </button>
+        <td class="d-none  d-md-table-cell">
+          <div class="d-flex justify-content-around">
+            <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+              Editar
+            </button>
+            <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+              Eliminar
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>
