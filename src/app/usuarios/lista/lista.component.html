@@ -68,9 +68,8 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Empresa</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Nombre empresa</th>
+        <th scope="col">Contacto</th>
         <th scope="col">Usuario</th>
         <th scope="col" class="d-none  d-md-table-cell">Correo</th>
         <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
@@ -82,25 +81,16 @@
           {{usuario.userid}}
         </td>
         <td> 
-          {{usuario.nombre}}
+          {{usuario.nombreempresa}}
         </td>
         <td>
-          {{usuario.apellidop}}
-        </td>
-        <td>
-          {{usuario.apellidom}}
-        </td>        
-        <td> 
-          {{usuario.tipo}}
+          {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
         </td>
         <td>
           {{usuario.username}}
         </td>
         <td> 
           {{usuario.email}}
-        </td>
-        <td class="d-none  d-md-table-cell">
-          {{usuario.nombreempresa}}
         </td>
         <td class="d-none  d-md-table-cell">
           <div class="d-flex justify-content-around">
