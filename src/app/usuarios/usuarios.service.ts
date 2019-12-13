@@ -23,14 +23,14 @@ export class UsuariosService {
   private socket2;
 
 
+  private URL:string="http://192.168.1.82:3333"
+ // private vari1:string = "http://192.168.1.82/usuario/eliminar";
+  //private vari2:string = "http://192.168.1.82/usuario/veruno";
+ // private vari3:string = "http://192.168.1.82/usuario/editar";
 
-  private vari1:string = "http://192.168.1.82:3333/usuario/eliminar";
-  private vari2:string = "http://192.168.1.82:3333/usuario/veruno";
-  private vari3:string = "http://192.168.1.82:3333/usuario/editar";
-
-  private url:string = "http://192.168.1.82:3333/";
-  private url2:string = "http://192.168.1.82:3333/verusua";
-  private url3:string = "http://192.168.1.82:3333/usuarioespecial";
+ // private url:string = "http://192.168.1.82/";
+ //private url2:string = "http://192.168.1.82/verusua";
+ // private url3:string = "http://192.168.1.82/usuarioespecial";
 
   constructor(private httpclient:HttpClient) {
     //Se conecta
@@ -106,24 +106,24 @@ changeMessage2(msg) {
 
   Login(email:string, password:string){
     var datos={email:email, password:password}
-  return this.httpclient.post(this.url+"login",datos);  
+  return this.httpclient.post(this.URL+"/login/",datos);  
   }
 
   Logininfo(email:string): Observable<Usuario>
       {
         var datos2={email:email};
-      return this.httpclient.post<Usuario>(this.url2,datos2);  
+      return this.httpclient.post<Usuario>(this.URL+"/verusua/",datos2);  
       }
 
       usuarioespecial(email:string): Observable<Usuario>
       {
         var datos2={email:email};
-      return this.httpclient.post<Usuario>(this.url3,datos2);  
+      return this.httpclient.post<Usuario>(this.URL+"/usuarioespecial/",datos2);  
       }
 
 
   agregarUsuario(usuario) {
-    return this.httpclient.post("http://192.168.1.82:3333/usuario/guardar",usuario,
+    return this.httpclient.post(URL+"/usuario/guardar/",usuario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -133,17 +133,17 @@ changeMessage2(msg) {
 
       getusuario(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>("http://192.168.1.82:3333/usuario/ver");
+        return this.httpclient.get<Usuario[]>(URL+"/usuario/ver/");
       }
 
       getusuariosinempresa(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>("http://192.168.1.82:3333/usuario/versinempresa");
+        return this.httpclient.get<Usuario[]>(URL+"/usuario/versinempresa/");
       }
 
       destruirUsuario(id): Observable<void>
       {
-        return this.httpclient.put<void>(`${this.vari1}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/usuario/eliminar"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ changeMessage2(msg) {
 
       editarUsuario(usuario: Usuario,id:number):Observable<void> {
 
-        return this.httpclient.put<void>(`${this.vari3}/${id}`,usuario,
+        return this.httpclient.put<void>(`${this.URL+"/usuario/editar"}/${id}`,usuario,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -164,7 +164,7 @@ changeMessage2(msg) {
           getusuariouno(id): Observable<Usuario>
               {
                  
-                return this.httpclient.get<Usuario>(`${this.vari2}/${id}`);
+                return this.httpclient.get<Usuario>(`${this.URL+"/usuario/veruno"}/${id}`);
               }
 
           nuevousuario():Usuario{

@@ -28,28 +28,28 @@ export class CuestionariosService {
       //Se conecta
       ws.connect();
    }
+   private URL:string="http://192.168.1.82:3333"
 
+ // private vari1:string = "http://127.0.0.1:3333/cuestionario/eliminar";
+  //private vari11:string = "http://127.0.0.1:3333/empresa/eliminar";
+  //private vari2:string = "http://127.0.0.1:3333/cuestionario/veruno";
+  //private vari22:string = "http://127.0.0.1:3333/empresa/veruno";
+  //private vari222:string = "http://127.0.0.1:3333/pregunta/veruno";
+  //private vari3:string = "http://127.0.0.1:3333/cuestionario/editar";
+  //private vari33:string = "http://127.0.0.1:3333/empresa/editar";
+  //private vari333:string = "http://127.0.0.1:3333/pregunta/editar";
 
-  private vari1:string = "http://192.168.1.82:3333/cuestionario/eliminar";
-  private vari11:string = "http://192.168.1.82:3333/empresa/eliminar";
-  private vari2:string = "http://192.168.1.82:3333/cuestionario/veruno";
-  private vari22:string = "http://192.168.1.82:3333/empresa/veruno";
-  private vari222:string = "http://192.168.1.82:3333/pregunta/veruno";
-  private vari3:string = "http://192.168.1.82:3333/cuestionario/editar";
-  private vari33:string = "http://192.168.1.82:3333/empresa/editar";
-  private vari333:string = "http://192.168.1.82:3333/pregunta/editar";
+  //private vari4:string = "http://127.0.0.1:3333/pregunta/eliminar";
 
-  private vari4:string = "http://192.168.1.82:3333/pregunta/eliminar";
-
-  private vari44:string = "http://192.168.1.82:3333/cuestionario/terminarcuestionario";
-  private vari444:string = "http://192.168.1.82:3333/cuestionario/terminareditar";
-  private vari5:string = "http://192.168.1.82:3333/pregunta/ver/visible";
-  private vari6:string = "http://192.168.1.82:3333/pregunta/ver/norespondida";
-  private vari66:string = "http://192.168.1.82:3333/pregunta/ver/nocalificada";
-  private vari666:string = "http://192.168.1.82:3333/pregunta/veresultado";
-  private vari7:string = "http://192.168.1.82:3333/pregunta/responder";
-  private vari77:string = "http://192.168.1.82:3333/pregunta/calificar";
-  private url3:string = "http://192.168.1.82:3333/cuestionario/ver";
+  //private vari44:string = "http://127.0.0.1:3333/cuestionario/terminarcuestionario";
+  //private vari444:string = "http://127.0.0.1:3333/cuestionario/terminareditar";
+  //private vari5:string = "http://127.0.0.1:3333/pregunta/ver/visible";
+  //private vari6:string = "http://127.0.0.1:3333/pregunta/ver/norespondida";
+  //private vari66:string = "http://127.0.0.1:3333/pregunta/ver/nocalificada";
+  //private vari666:string = "http://127.0.0.1:3333/pregunta/veresultado";
+  //private vari7:string = "http://127.0.0.1:3333/pregunta/responder";
+  //private vari77:string = "http://127.0.0.1:3333/pregunta/calificar";
+  //private url3:string = "http://127.0.0.1:3333/cuestionario/ver";
 
 
 
@@ -118,7 +118,7 @@ changeMessage2(msg) {
 }
 
   agregarEmpresa(empresa) {
-    return this.httpclient.post("http://192.168.1.82:3333/empresa/guardar",empresa,
+    return this.httpclient.post(URL+"/empresa/guardar",empresa,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -128,18 +128,18 @@ changeMessage2(msg) {
 
       getEmpresa(): Observable<Empresa[]>
       {
-        return this.httpclient.get<Empresa[]>("http://192.168.1.82:3333/empresa/ver");
+        return this.httpclient.get<Empresa[]>(URL+"/empresa/ver");
       }
 
       getEmpresauno(id): Observable<Empresa>
       {
          
-        return this.httpclient.get<Empresa>(`${this.vari22}/${id}`);
+        return this.httpclient.get<Empresa>(`${this.URL+"/empresa/veruno"}/${id}`);
       }
 
       destruirEmpresa(id): Observable<void>
       {
-        return this.httpclient.put<void>(`${this.vari11}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/empresa/eliminar"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ changeMessage2(msg) {
 
       editarEmpresa(empresa: Empresa,id:number):Observable<void> {
 
-        return this.httpclient.put<void>(`${this.vari33}/${id}`,empresa,
+        return this.httpclient.put<void>(`${this.URL+"/empresa/editar"}/${id}`,empresa,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -170,7 +170,7 @@ changeMessage2(msg) {
 
     
   agregarCuestionario(cuestionario) {
-    return this.httpclient.post("http://192.168.1.82:3333/cuestionario/guardar",cuestionario,
+    return this.httpclient.post(URL+"/cuestionario/guardar",cuestionario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -180,13 +180,13 @@ changeMessage2(msg) {
 
       getCuestionarioadmin(): Observable<Cuestionario[]>
       {
-        return this.httpclient.get<Cuestionario[]>("http://192.168.1.82:3333/cuestionario/veradmin");
+        return this.httpclient.get<Cuestionario[]>(URL+"/cuestionario/veradmin");
       }
 
       getCuestionario(id, username): Observable<Cuestionario[]>
       {
         var datos2={myid:id,username:username};
-      return this.httpclient.post<Cuestionario[]>(this.url3,datos2);  
+      return this.httpclient.post<Cuestionario[]>(this.URL+"/cuestionario/ver",datos2);  
       }
 
 
@@ -194,7 +194,7 @@ changeMessage2(msg) {
 
       destruirCuestionario(id): Observable<void>
       {
-        return this.httpclient.put<void>(`${this.vari1}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/cuestionario/eliminar"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -204,7 +204,7 @@ changeMessage2(msg) {
 
       editarCuestionario(cuestionario: Cuestionario,id:number):Observable<void> {
 
-        return this.httpclient.put<void>(`${this.vari3}/${id}`,cuestionario,
+        return this.httpclient.put<void>(`${this.URL+"/cuestionario/editar"}/${id}`,cuestionario,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -215,7 +215,7 @@ changeMessage2(msg) {
           getCuestionariouno(id): Observable<Cuestionario>
               {
                  
-                return this.httpclient.get<Cuestionario>(`${this.vari2}/${id}`);
+                return this.httpclient.get<Cuestionario>(`${this.URL+"/cuestionario/veruno"}/${id}`);
               }
 
           nuevocuestionario(idcreador):Cuestionario{
@@ -248,7 +248,7 @@ changeMessage2(msg) {
           }
 
           agregarPregunta(pregunta) {
-            return this.httpclient.post("http://192.168.1.82:3333/pregunta/guardar",pregunta,
+            return this.httpclient.post(URL+"/pregunta/guardar",pregunta,
               {
                 headers: new HttpHeaders({
                   'Content-Type': 'application/json'
@@ -258,7 +258,7 @@ changeMessage2(msg) {
 
               terminarcuestionario(id): Observable<void>
               {
-        return this.httpclient.put<void>(`${this.vari44}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/cuestionario/terminarcuestionario"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -268,7 +268,7 @@ changeMessage2(msg) {
               
               terminareditarcues(id): Observable<void>
               {
-        return this.httpclient.put<void>(`${this.vari444}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/cuestionario/terminareditar"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -278,7 +278,7 @@ changeMessage2(msg) {
 
           responderpregunta(respuesta,id:number):Observable<void> {
             var datos2={respuesta:respuesta};
-                return this.httpclient.put<void>(`${this.vari7}/${id}`,datos2,
+                return this.httpclient.put<void>(`${this.URL+"/pregunta/responder"}/${id}`,datos2,
                   {
                     headers: new HttpHeaders({
                       'Content-Type': 'application/json'
@@ -288,7 +288,7 @@ changeMessage2(msg) {
 
           calificarpregunta(pregunta: Pregunta,id:number):Observable<void> {
 
-                    return this.httpclient.put<void>(`${this.vari77}/${id}`,pregunta,
+                    return this.httpclient.put<void>(`${this.URL+"/pregunta/calificar"}/${id}`,pregunta,
                       {
                         headers: new HttpHeaders({
                           'Content-Type': 'application/json'
@@ -301,37 +301,37 @@ changeMessage2(msg) {
               getPreguntavisible(id): Observable<Pregunta[]>
               {
                  
-                return this.httpclient.get<Pregunta[]>(`${this.vari5}/${id}`);
+                return this.httpclient.get<Pregunta[]>(`${this.URL+"/pregunta/ver/visible"}/${id}`);
               }
 
               getPreguntarespondida(id): Observable<Pregunta[]>
               {
                  
-                return this.httpclient.get<Pregunta[]>(`${this.vari6}/${id}`);
+                return this.httpclient.get<Pregunta[]>(`${this.URL+"/pregunta/ver/norespondida"}/${id}`);
               }
 
               getpreguntaresultado(id, username,idcuesti): Observable<Pregunta[]>
               {
               var datos2={myid:id,username:username};
-              return this.httpclient.post<Pregunta[]>(`${this.vari666}/${idcuesti}`,datos2);  
+              return this.httpclient.post<Pregunta[]>(`${this.URL+"/pregunta/veresultado"}/${idcuesti}`,datos2);  
               }
 
               getPreguntanocalificda(id): Observable<Pregunta[]>
               {
                  
-                return this.httpclient.get<Pregunta[]>(`${this.vari66}/${id}`);
+                return this.httpclient.get<Pregunta[]>(`${this.URL+"/pregunta/ver/nocalificada"}/${id}`);
               }
 
               getPreguntauno(id): Observable<Pregunta>
               {
                  
-                return this.httpclient.get<Pregunta>(`${this.vari222}/${id}`);
+                return this.httpclient.get<Pregunta>(`${this.URL+"/pregunta/veruno"}/${id}`);
               }
               
 
               destruirpregunta(id): Observable<void>
                         {
-        return this.httpclient.put<void>(`${this.vari4}/${id}`,
+        return this.httpclient.put<void>(`${this.URL+"/pregunta/eliminar"}/${id}`,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'
@@ -341,7 +341,7 @@ changeMessage2(msg) {
 
       editarPregunta(pregunta: Pregunta,id:number):Observable<void> {
 
-        return this.httpclient.put<void>(`${this.vari333}/${id}`,pregunta,
+        return this.httpclient.put<void>(`${this.URL+"/pregunta/editar"}/${id}`,pregunta,
           {
             headers: new HttpHeaders({
               'Content-Type': 'application/json'

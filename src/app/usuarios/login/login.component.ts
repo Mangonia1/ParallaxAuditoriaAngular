@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.usuarios.Logininfo(this.email).subscribe(data => {
        this.usuario = data[0];
        console.log(data);
-        console.log('id '+this.usuario.id);
        this.Empezar(this.usuario.id,this.usuario.username);
     },error => {
       console.log(JSON.stringify(error));
