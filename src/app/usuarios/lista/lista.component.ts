@@ -18,7 +18,14 @@ export class ListaComponent implements OnInit, OnDestroy {
   constructor(
     private usuarioservice: UsuariosService,
      private router:Router
-  ) { }
+  ) { 
+
+  
+
+
+  }
+
+  
 
   ngOnInit() {
     // this.usuarioservice.suscribir(this.lista);
