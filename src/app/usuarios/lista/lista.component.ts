@@ -14,6 +14,7 @@ export class ListaComponent implements OnInit, OnDestroy {
   usuarios2:Usuario[];
   arreglo: any = [{nombre: "oscar"},{nombre:"tony"}];
   usuarioprincipal;
+  mostrar:boolean = true;
 
   constructor(
     private usuarioservice: UsuariosService,

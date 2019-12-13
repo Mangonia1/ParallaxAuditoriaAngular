@@ -1,108 +1,124 @@
 <div>
-  <div class="blank-space"></div>
-  <div class="row">
-    <h1 class="title">Auditores</h1>
-  </div>
-  <div class="blank-space-sm"></div>
-  <div class="row">
-    <div class="col-8 col-lg-10">
-        <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
-    </div>
-    <div class="col-4 col-lg-2">
-      <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
-    </div>
-  </div>
-  <div class="blank-space-sm"></div>
-<table id="customers">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Usuario</th>
-      <th scope="col" class="d-none d-md-table-cell">Correo</th>
-      <th scope="col" class="d-none d-md-table-cell">Opciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let usuario of usuarios2">
-      <td>
-          {{usuario.userid}}
-      </td>
-      <td>       
-        {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
-      </td>
-      <td>
-        {{usuario.username}}
-      </td>
-      <td class="d-none d-md-table-cell">
-        {{usuario.email}}     
-      </td>
-      <td class="d-none d-md-table-cell">
-        <div class="d-flex justify-content-around">
-          <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-            Editar
-          </button>
-          <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-            Eliminar
-          </button>
+    <div class="blank-space"></div>
+    <div class="card  shadow ">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link noselect" [ngClass]="{'active':mostrar}" (click)="mostrar = true">Auditores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link noselect" [ngClass]="{'active':!mostrar}" (click)="mostrar = false">Link</a>
+            </li>            
+          </ul>
         </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<!-- Lista de empresas -->
-<div>  
-  <div class="blank-space"></div>
-  <h1 class="title">Empresas</h1>
-  <div class="row">
-    <div class="col-8 col-lg-10">
-        <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
-    </div>
-    <div class="col-4 col-lg-2">
-      <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
-    </div>
-  </div>
-  <div class="blank-space-sm"></div>
-  <table  id="customers">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre empresa</th>
-        <th scope="col">Contacto</th>
-        <th scope="col">Usuario</th>
-        <th scope="col" class="d-none  d-md-table-cell">Correo</th>
-        <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr  *ngFor="let usuario of usuarios">
-        <td>
-          {{usuario.userid}}
-        </td>
-        <td> 
-          {{usuario.nombreempresa}}
-        </td>
-        <td>
-          {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
-        </td>
-        <td>
-          {{usuario.username}}
-        </td>
-        <td> 
-          {{usuario.email}}
-        </td>
-        <td class="d-none  d-md-table-cell">
-          <div class="d-flex justify-content-around">
-            <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-              Editar
-            </button>
-            <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-              Eliminar
-            </button>
+        <div *ngIf="mostrar" class="card-body">
+          <h2 class="card-title">Auditores</h2>
+          <div class="blank-space-sm"></div>
+          <div class="row">
+            <div class="col-8 col-lg-10">
+                <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
+            </div>
+            <div class="col-4 col-lg-2">
+              <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
+            </div>
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          <div class="blank-space-sm"></div>
+        <table id="customers">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Usuario</th>
+              <th scope="col" class="d-none d-md-table-cell">Correo</th>
+              <th scope="col" class="d-none d-md-table-cell">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios2">
+              <td>
+                  {{usuario.userid}}
+              </td>
+              <td>       
+                {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
+              </td>
+              <td>
+                {{usuario.username}}
+              </td>
+              <td class="d-none d-md-table-cell">
+                {{usuario.email}}     
+              </td>
+              <td class="d-none d-md-table-cell">
+                <div class="d-flex justify-content-around">
+                  <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+                    Editar
+                  </button>
+                  <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+                    Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div *ngIf="!mostrar" class="card-body">
+            <h2 class="card-title">Empresas</h2>
+            <div class="blank-space-sm"></div>        
+            <div class="row">
+              <div class="col-8 col-lg-10">
+                  <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
+              </div>
+              <div class="col-4 col-lg-2">
+                <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
+              </div>
+            </div>
+            <div class="blank-space-sm"></div>
+            <table  id="customers">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre empresa</th>
+                  <th scope="col">Contacto</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col" class="d-none  d-md-table-cell">Correo</th>
+                  <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let usuario of usuarios">
+                  <td>
+                    {{usuario.userid}}
+                  </td>
+                  <td> 
+                    {{usuario.nombreempresa}}
+                  </td>
+                  <td>
+                    {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
+                  </td>
+                  <td>
+                    {{usuario.username}}
+                  </td>
+                  <td class="d-none  d-md-table-cell"> 
+                    {{usuario.email}}
+                  </td>
+                  <td class="d-none  d-md-table-cell">
+                    <div class="d-flex justify-content-around">
+                      <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
+                        Editar
+                      </button>
+                      <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+      
+  
+  
+<!-- Lista de empresas -->
