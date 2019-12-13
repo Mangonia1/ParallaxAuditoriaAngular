@@ -123,7 +123,7 @@ changeMessage2(msg) {
 
 
   agregarUsuario(usuario) {
-    return this.httpclient.post(URL+"/usuario/guardar/",usuario,
+    return this.httpclient.post(this.URL+"/usuario/guardar/",usuario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -133,12 +133,12 @@ changeMessage2(msg) {
 
       getusuario(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>(URL+"/usuario/ver/");
+        return this.httpclient.get<Usuario[]>(this.URL+"/usuario/ver/");
       }
 
       getusuariosinempresa(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>(URL+"/usuario/versinempresa/");
+        return this.httpclient.get<Usuario[]>(this.URL+"/usuario/versinempresa/");
       }
 
       destruirUsuario(id): Observable<void>

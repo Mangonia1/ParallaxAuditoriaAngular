@@ -49,7 +49,7 @@ export class CuestionariosService {
   //private vari666:string = "http://127.0.0.1:3333/pregunta/veresultado";
   //private vari7:string = "http://127.0.0.1:3333/pregunta/responder";
   //private vari77:string = "http://127.0.0.1:3333/pregunta/calificar";
-  //private url3:string = "http://127.0.0.1:3333/cuestionario/ver";
+  //private this.url3:string = "http://127.0.0.1:3333/cuestionario/ver";
 
 
 
@@ -118,7 +118,7 @@ changeMessage2(msg) {
 }
 
   agregarEmpresa(empresa) {
-    return this.httpclient.post(URL+"/empresa/guardar",empresa,
+    return this.httpclient.post(this.URL+"/empresa/guardar",empresa,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -128,7 +128,7 @@ changeMessage2(msg) {
 
       getEmpresa(): Observable<Empresa[]>
       {
-        return this.httpclient.get<Empresa[]>(URL+"/empresa/ver");
+        return this.httpclient.get<Empresa[]>(this.URL+"/empresa/ver");
       }
 
       getEmpresauno(id): Observable<Empresa>
@@ -170,7 +170,7 @@ changeMessage2(msg) {
 
     
   agregarCuestionario(cuestionario) {
-    return this.httpclient.post(URL+"/cuestionario/guardar",cuestionario,
+    return this.httpclient.post(this.URL+"/cuestionario/guardar",cuestionario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ changeMessage2(msg) {
 
       getCuestionarioadmin(): Observable<Cuestionario[]>
       {
-        return this.httpclient.get<Cuestionario[]>(URL+"/cuestionario/veradmin");
+        return this.httpclient.get<Cuestionario[]>(this.URL+"/cuestionario/veradmin");
       }
 
       getCuestionario(id, username): Observable<Cuestionario[]>
@@ -248,7 +248,7 @@ changeMessage2(msg) {
           }
 
           agregarPregunta(pregunta) {
-            return this.httpclient.post(URL+"/pregunta/guardar",pregunta,
+            return this.httpclient.post(this.URL+"/pregunta/guardar",pregunta,
               {
                 headers: new HttpHeaders({
                   'Content-Type': 'application/json'
