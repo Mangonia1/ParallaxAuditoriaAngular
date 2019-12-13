@@ -32,14 +32,13 @@ export class FormulariocuestionarioComponent implements OnInit {
 
     this.myForm=this.fb.group({
       nombrecuestionario:['',Validators.required],
-      empresa:['',Validators.required],
       departamento:['',Validators.required],
       idcreador:['',Validators.required],
       usernameauditor:['',Validators.required]
     });
     
     this.idcreador = localStorage.getItem('miid');
-    console.log('yo soy '+this.idcreador );
+
 
     this.cuestionario = this.cuestionariosservice.nuevocuestionario(this.idcreador);
     this.usuarioservice.getusuariosinempresa().subscribe(data =>this.usuarios=data);

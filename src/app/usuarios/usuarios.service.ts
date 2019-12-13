@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import Ws from '@adonisjs/websocket-client';
 //Se Define la direccion del socket
 //no funciona con esta linea de ws
- const ws = Ws('ws://192.168.1.82:3333');
+ const ws = Ws('ws://127.0.0.1:3333');
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +23,14 @@ export class UsuariosService {
   private socket2;
 
 
-  private URL:string="http://192.168.1.82:3333"
- // private vari1:string = "http://192.168.1.82/usuario/eliminar";
-  //private vari2:string = "http://192.168.1.82/usuario/veruno";
- // private vari3:string = "http://192.168.1.82/usuario/editar";
+  private URL:string="http://127.0.0.1:3333"
+ // private vari1:string = "http://127.0.0.1/usuario/eliminar";
+  //private vari2:string = "http://127.0.0.1/usuario/veruno";
+ // private vari3:string = "http://127.0.0.1/usuario/editar";
 
- // private url:string = "http://192.168.1.82/";
- //private url2:string = "http://192.168.1.82/verusua";
- // private url3:string = "http://192.168.1.82/usuarioespecial";
+ // private url:string = "http://127.0.0.1/";
+ //private url2:string = "http://127.0.0.1/verusua";
+ // private url3:string = "http://127.0.0.1/usuarioespecial";
 
   constructor(private httpclient:HttpClient) {
     //Se conecta
@@ -123,7 +123,7 @@ changeMessage2(msg) {
 
 
   agregarUsuario(usuario) {
-    return this.httpclient.post(URL+"/usuario/guardar/",usuario,
+    return this.httpclient.post(this.URL+"/usuario/guardar/",usuario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'

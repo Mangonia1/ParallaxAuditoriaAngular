@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import Ws from '@adonisjs/websocket-client';
 //Se Define la direccion del socket
 //no funciona con esta linea de ws
- const ws = Ws('ws://192.168.1.82:3333');
+ const ws = Ws('ws://127.0.0.1:3333');
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class CuestionariosService {
       //Se conecta
       ws.connect();
    }
-   private URL:string="http://192.168.1.82:3333"
+   private URL:string="http://127.0.0.1:3333"
 
  // private vari1:string = "http://127.0.0.1:3333/cuestionario/eliminar";
   //private vari11:string = "http://127.0.0.1:3333/empresa/eliminar";
@@ -118,7 +118,7 @@ changeMessage2(msg) {
 }
 
   agregarEmpresa(empresa) {
-    return this.httpclient.post(URL+"/empresa/guardar",empresa,
+    return this.httpclient.post(this.URL+"/empresa/guardar",empresa,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -128,7 +128,7 @@ changeMessage2(msg) {
 
       getEmpresa(): Observable<Empresa[]>
       {
-        return this.httpclient.get<Empresa[]>(URL+"/empresa/ver");
+        return this.httpclient.get<Empresa[]>(this.URL+"/empresa/ver");
       }
 
       getEmpresauno(id): Observable<Empresa>
@@ -170,7 +170,7 @@ changeMessage2(msg) {
 
     
   agregarCuestionario(cuestionario) {
-    return this.httpclient.post(URL+"/cuestionario/guardar",cuestionario,
+    return this.httpclient.post(this.URL+"/cuestionario/guardar",cuestionario,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ changeMessage2(msg) {
 
       getCuestionarioadmin(): Observable<Cuestionario[]>
       {
-        return this.httpclient.get<Cuestionario[]>(URL+"/cuestionario/veradmin");
+        return this.httpclient.get<Cuestionario[]>(this.URL+"/cuestionario/veradmin");
       }
 
       getCuestionario(id, username): Observable<Cuestionario[]>
@@ -248,7 +248,7 @@ changeMessage2(msg) {
           }
 
           agregarPregunta(pregunta) {
-            return this.httpclient.post(URL+"/pregunta/guardar",pregunta,
+            return this.httpclient.post(this.URL+"/pregunta/guardar",pregunta,
               {
                 headers: new HttpHeaders({
                   'Content-Type': 'application/json'

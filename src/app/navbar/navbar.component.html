@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-expand-lg bg-light shadow">
   <a class="navbar-brand white" [routerLink]="['/']" routerLinkActive="router-link-active"><h4>Parallax</h4></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -55,11 +55,41 @@
               </div>
             </div>
           </li>
-          <button (click)="cerrarSesion()" type="button" class="btn btn-sm btn-outline-danger my-2 my-sm-0">
-            Cerrar sesion
-          </button>   
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+          
+        </form>   
       </div>
     </div>
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <a class="navbar-brand" [routerLink]="['menu']"><img style="height: 50px; width: 50px;" src="assets/icons/icon-72x72.png" alt="Parallax"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['menu']" style="font-weight: 700;">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['listausuario']" routerLinkActive="router-link-active">Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['listaempresa']" routerLinkActive="router-link-active">Empresas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['listacuestionario']" routerLinkActive="router-link-active">Auditorías</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button (click)="cerrarSesion()" type="button" class="btn-danger-alt">
+        Cerrar sesion
+      </button>
+    </form>
   </div>
 </nav>

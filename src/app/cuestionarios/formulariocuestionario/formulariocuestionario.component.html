@@ -18,16 +18,7 @@
         <input type="text" id="nombrecuestionario" name="nombrecuestionario" class="form-control" 
         [(ngModel)]="cuestionario.nombrecuestionario" placeholder="Nombre"
         formControlName="nombrecuestionario">
-     </div>
-     <div class="form-group ">
-       <label class="text-info">Nombre de la empresa</label><br>
-       <select class="form-control" id="empresa" name="empresa"
-        [(ngModel)]="cuestionario.empresa" formControlName="empresa" >
-         <option *ngFor="let emp of empresa" [value]="emp.nombre">
-           {{emp.nombre}}
-         </option>
-       </select>
-     </div> 
+     </div>     
      <div class="form-group " >
        <label class="text-info">Nombre del departamento</label> <br> 
        <input type="text" id="departamento" name="departamento" class="form-control" 
