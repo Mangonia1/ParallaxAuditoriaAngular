@@ -49,7 +49,7 @@ export class CuestionariosService {
   //private vari666:string = "http://127.0.0.1:3333/pregunta/veresultado";
   //private vari7:string = "http://127.0.0.1:3333/pregunta/responder";
   //private vari77:string = "http://127.0.0.1:3333/pregunta/calificar";
-  //private url3:string = "http://127.0.0.1:3333/cuestionario/ver";
+  //private this.url3:string = "http://127.0.0.1:3333/cuestionario/ver";
 
 
 
