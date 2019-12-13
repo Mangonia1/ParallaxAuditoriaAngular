@@ -86,8 +86,6 @@ a{
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 700;
-  padding-left: 20px;
-  padding-right: 20px;
   background: transparent;
   border: 2px solid #191919;
   border-radius: 0;
@@ -95,8 +93,6 @@ a{
 
 .btn-black:hover{
   color: #fff;
-  padding-left: 20px;
-  padding-right: 20px;
   background: #191919;
   border: 2px solid #191919;
   border-radius: 0;
@@ -106,8 +102,6 @@ a{
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 700;
-  padding-left: 20px;
-  padding-right: 20px;
   background: #191919;
   border: 2px solid #191919;
   border-radius: 0;
@@ -115,9 +109,7 @@ a{
 }
 
 .btn-black-alt:hover{
-  color: #191919;;
-  padding-left: 20px;
-  padding-right: 20px;
+  color: #191919;
   background: #fff;
   border: 2px solid #191919;
   border-radius: 0;

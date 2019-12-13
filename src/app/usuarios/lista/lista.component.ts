@@ -10,12 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ListaComponent implements OnInit, OnDestroy {
 
-
   usuarios:Usuario[];
   usuarios2:Usuario[];
+  arreglo: any = [{nombre: "oscar"},{nombre:"tony"}];
   usuarioprincipal;
-  lista = 'listausurios';
-  lista2 = 'listausurios2';
 
   constructor(
     private usuarioservice: UsuariosService,

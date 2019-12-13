@@ -6,6 +6,8 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { CuestionariosModule } from './cuestionarios/cuestionarios.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuComponent } from './menu/menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,10 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     UsuariosModule,
-    CuestionariosModule
+    NgxPaginationModule,
+    CuestionariosModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
