@@ -1,9 +1,10 @@
 {
-  "name": "auditoriapp",
-  "short_name": "auditoriapp",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Parallax auditorias",
+  "short_name": "Parallax",
+  "theme_color": "#343a40",
+  "background_color": "#343a40",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [
