@@ -133,12 +133,12 @@ changeMessage2(msg) {
 
       getusuario(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>(URL+"/usuario/ver/");
+        return this.httpclient.get<Usuario[]>(this.URL+"/usuario/ver/");
       }
 
       getusuariosinempresa(): Observable<Usuario[]>
       {
-        return this.httpclient.get<Usuario[]>(URL+"/usuario/versinempresa/");
+        return this.httpclient.get<Usuario[]>(this.URL+"/usuario/versinempresa/");
       }
 
       destruirUsuario(id): Observable<void>
