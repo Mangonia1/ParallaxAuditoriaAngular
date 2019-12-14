@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import Ws from '@adonisjs/websocket-client';
 //Se Define la direccion del socket
 //no funciona con esta linea de ws
- const ws = Ws('ws://127.0.0.1:3333');
+ const ws = Ws('ws://192.168.1.82:3333');
 
 @Injectable({
   providedIn: 'root'
@@ -28,28 +28,28 @@ export class CuestionariosService {
       //Se conecta
       ws.connect();
    }
-   private URL:string="http://127.0.0.1:3333"
+   private URL:string="http://192.168.1.82:3333"
 
- // private vari1:string = "http://127.0.0.1:3333/cuestionario/eliminar";
-  //private vari11:string = "http://127.0.0.1:3333/empresa/eliminar";
-  //private vari2:string = "http://127.0.0.1:3333/cuestionario/veruno";
-  //private vari22:string = "http://127.0.0.1:3333/empresa/veruno";
-  //private vari222:string = "http://127.0.0.1:3333/pregunta/veruno";
-  //private vari3:string = "http://127.0.0.1:3333/cuestionario/editar";
-  //private vari33:string = "http://127.0.0.1:3333/empresa/editar";
-  //private vari333:string = "http://127.0.0.1:3333/pregunta/editar";
+ // private vari1:string = "http://192.168.1.82:3333/cuestionario/eliminar";
+  //private vari11:string = "http://192.168.1.82:3333/empresa/eliminar";
+  //private vari2:string = "http://192.168.1.82:3333/cuestionario/veruno";
+  //private vari22:string = "http://192.168.1.82:3333/empresa/veruno";
+  //private vari222:string = "http://192.168.1.82:3333/pregunta/veruno";
+  //private vari3:string = "http://192.168.1.82:3333/cuestionario/editar";
+  //private vari33:string = "http://192.168.1.82:3333/empresa/editar";
+  //private vari333:string = "http://192.168.1.82:3333/pregunta/editar";
 
-  //private vari4:string = "http://127.0.0.1:3333/pregunta/eliminar";
+  //private vari4:string = "http://192.168.1.82:3333/pregunta/eliminar";
 
-  //private vari44:string = "http://127.0.0.1:3333/cuestionario/terminarcuestionario";
-  //private vari444:string = "http://127.0.0.1:3333/cuestionario/terminareditar";
-  //private vari5:string = "http://127.0.0.1:3333/pregunta/ver/visible";
-  //private vari6:string = "http://127.0.0.1:3333/pregunta/ver/norespondida";
-  //private vari66:string = "http://127.0.0.1:3333/pregunta/ver/nocalificada";
-  //private vari666:string = "http://127.0.0.1:3333/pregunta/veresultado";
-  //private vari7:string = "http://127.0.0.1:3333/pregunta/responder";
-  //private vari77:string = "http://127.0.0.1:3333/pregunta/calificar";
-  //private this.url3:string = "http://127.0.0.1:3333/cuestionario/ver";
+  //private vari44:string = "http://192.168.1.82:3333/cuestionario/terminarcuestionario";
+  //private vari444:string = "http://192.168.1.82:3333/cuestionario/terminareditar";
+  //private vari5:string = "http://192.168.1.82:3333/pregunta/ver/visible";
+  //private vari6:string = "http://192.168.1.82:3333/pregunta/ver/norespondida";
+  //private vari66:string = "http://192.168.1.82:3333/pregunta/ver/nocalificada";
+  //private vari666:string = "http://192.168.1.82:3333/pregunta/veresultado";
+  //private vari7:string = "http://192.168.1.82:3333/pregunta/responder";
+  //private vari77:string = "http://192.168.1.82:3333/pregunta/calificar";
+  //private this.url3:string = "http://192.168.1.82:3333/cuestionario/ver";
 
 
 

@@ -1,36 +1,29 @@
 
 #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    font-family:  Florence,cursive;
-    font-size: medium;
-  }
-  
-  
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: rgb(250, 234, 11);}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: rgb(4, 73, 90);
-    color: #17e7d6;
-    font-family: monospace;
-  }
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  h1 {
-    color:  rgb(4, 73, 90);
-    font-weight: normal;
-    font-size: 40px;
-    font-family:'Times New Roman', Times, serif;
-    text-transform: uppercase;
-  }
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: medium;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #191919;
+  font-family: 'PT Serif', serif;
+}
+
+input:focus{
+  box-shadow: none;
+  border: 1px solid #191919;
+}
+
+input:active{
+  border: 1px solid #191919;
+}

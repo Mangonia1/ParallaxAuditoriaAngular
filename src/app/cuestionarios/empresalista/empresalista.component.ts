@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class EmpresalistaComponent implements OnInit {
 
   empresa:Empresa[];
+  mostrar:boolean = true;
   
   usuarioprincipal;
   nombre:string;
