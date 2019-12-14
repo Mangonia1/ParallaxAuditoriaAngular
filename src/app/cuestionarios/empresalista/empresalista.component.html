@@ -1,95 +1,69 @@
-<h1>Lista de empresa</h1>
-
-<div *ngFor="let up of usuarioprincipal">
-    <div *ngIf="up.id !=  0"> 
-        
-
-<table id="customers">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre de la empresa</th>
-      <th scope="col">Giro de la empresa</th>
-      <th scope="col">Eliminar</th>
-      <th scope="col">Editar</th>
-    </tr>
-  </thead>
-  <tbody>
-      
-      <tr *ngFor="let emp of empresa">
-             <td>
-
-                {{emp.id}}
-
-            
-            </td>
-
-      <td> 
-
-  
-     {{emp.nombre | uppercase}}
-
-  
-  </td>
-
-    <td>
-
-      
-      {{emp.giro | uppercase}}
-
-  
-  </td>
-
-  
-      <td>
-
-              <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
-              <button (click)='this.eliminarempresa(emp.id)' type="button" class="btn btn-outline-danger btn-sm">
-                  Eliminar {{emp.nombre}}
-              </button>
-              </div>
-
-        </td>
-
-        <td>
-
-                <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
-                <button (click)='this.editarempres(emp.id)' type="button" class="btn btn-outline-success btn-sm">
-                    Editar {{emp.giro}}
-                </button>
-              </div>
-
-          </td>
-
-          
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div>
+  <div class="blank-space"></div>
+  <div class="card shadow ">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link title noselect" [ngClass]="{'active':mostrar}" (click)="mostrar = true">Empresas</a>
+        </li>         
+      </ul>
+    </div>
+    <div *ngIf="mostrar" class="card-body">
+      <div class="blank-space-sm"></div>
+      <div class="row">
+        <div class="col-8 col-lg-8">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
+        </div>
+        <div class="col-4 col-lg-2">
+          <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
+        </div>
+        <div class="d-block d-lg-none blank-space-sm"></div>
+        <div class="col-12 col-lg-2">
+          <button class="btn-success-alt btn-block shadow" data-toggle="modal" data-target="#addUser">
+            <i class="fa fa-search"></i>+
+          </button>
+        </div>
       </div>
+      <div class="blank-space-sm"></div>
+      <div *ngFor="let up of usuarioprincipal">
+        <div *ngIf="up.id !=  0">
+          <table id="customers">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre de la empresa</th>
+                <th scope="col">Giro de la empresa</th>
+                <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of empresa">
+                <td>
+                  {{emp.id}}
+                </td>
+                <td>
+                  {{emp.nombre}}
+                </td>
+                <td>
+                  {{emp.giro}}
+                </td>
+                <td class="d-none d-md-table-cell" class="d-flex justify-content-around">
+                  <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
+                    <button (click)='this.editarempres(emp.id)' type="button" class="btn-primary-alt">
+                      Editar
+                    </button>
+                  </div>
+                  <div *ngIf="up.tipo ==  'Administrador' || up.tipo ==  'Empresa' ">
+                    <button (click)='this.eliminarempresa(emp.id)' type="button" class="btn-danger-alt">
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
