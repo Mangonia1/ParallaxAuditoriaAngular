@@ -10,18 +10,21 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { TableComponent } from './table/table.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     UsuariosModule,
+    Ng2SmartTableModule,
     NgxPaginationModule,
     CuestionariosModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

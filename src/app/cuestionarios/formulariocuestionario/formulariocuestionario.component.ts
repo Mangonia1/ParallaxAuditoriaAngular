@@ -32,6 +32,7 @@ export class FormulariocuestionarioComponent implements OnInit {
 
     this.myForm=this.fb.group({
       nombrecuestionario:['',Validators.required],
+      empresa:['',Validators.required],
       departamento:['',Validators.required],
       idcreador:['',Validators.required],
       usernameauditor:['',Validators.required]
