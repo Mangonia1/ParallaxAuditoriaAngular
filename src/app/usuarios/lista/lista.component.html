@@ -1,124 +1,220 @@
 <div>
-    <div class="blank-space"></div>
-    <div class="card  shadow ">
-        <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-              <a class="nav-link noselect" [ngClass]="{'active':mostrar}" (click)="mostrar = true">Auditores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link noselect" [ngClass]="{'active':!mostrar}" (click)="mostrar = false">Link</a>
-            </li>            
-          </ul>
+  <div class="blank-space"></div>
+  <div class="card shadow ">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link title noselect" [ngClass]="{'active':mostrar}" (click)="mostrar = true">Auditores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link title noselect" [ngClass]="{'active':!mostrar}" (click)="mostrar = false">Clientes</a>
+        </li>            
+      </ul>
+    </div>
+    <div *ngIf="mostrar" class="card-body">
+      <div class="blank-space-sm"></div>
+      <div class="row">
+        <div class="col-8 col-lg-8">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
         </div>
-        <div *ngIf="mostrar" class="card-body">
-          <h2 class="card-title">Auditores</h2>
-          <div class="blank-space-sm"></div>
-          <div class="row">
-            <div class="col-8 col-lg-10">
-                <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
-            </div>
-            <div class="col-4 col-lg-2">
-              <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
-            </div>
-          </div>
-          <div class="blank-space-sm"></div>
-        <table id="customers">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Usuario</th>
-              <th scope="col" class="d-none d-md-table-cell">Correo</th>
-              <th scope="col" class="d-none d-md-table-cell">Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let usuario of usuarios2">
-              <td>
-                  {{usuario.userid}}
-              </td>
-              <td>       
-                {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
-              </td>
-              <td>
-                {{usuario.username}}
-              </td>
-              <td class="d-none d-md-table-cell">
-                {{usuario.email}}     
-              </td>
-              <td class="d-none d-md-table-cell">
-                <div class="d-flex justify-content-around">
-                  <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-                    Editar
-                  </button>
-                  <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-                    Eliminar
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="col-4 col-lg-2">
+          <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
         </div>
-        <div *ngIf="!mostrar" class="card-body">
-            <h2 class="card-title">Empresas</h2>
-            <div class="blank-space-sm"></div>        
-            <div class="row">
-              <div class="col-8 col-lg-10">
-                  <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
-              </div>
-              <div class="col-4 col-lg-2">
-                <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
-              </div>
-            </div>
-            <div class="blank-space-sm"></div>
-            <table  id="customers">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre empresa</th>
-                  <th scope="col">Contacto</th>
-                  <th scope="col">Usuario</th>
-                  <th scope="col" class="d-none  d-md-table-cell">Correo</th>
-                  <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr  *ngFor="let usuario of usuarios">
-                  <td>
-                    {{usuario.userid}}
-                  </td>
-                  <td> 
-                    {{usuario.nombreempresa}}
-                  </td>
-                  <td>
-                    {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
-                  </td>
-                  <td>
-                    {{usuario.username}}
-                  </td>
-                  <td class="d-none  d-md-table-cell"> 
-                    {{usuario.email}}
-                  </td>
-                  <td class="d-none  d-md-table-cell">
-                    <div class="d-flex justify-content-around">
-                      <button (click)='this.editarMono(usuario.userid)' type="button" class="btn btn-outline-success btn-sm">
-                        Editar
-                      </button>
-                      <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn btn-outline-danger btn-sm">
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="d-block d-lg-none blank-space-sm"></div>
+        <div class="col-12 col-lg-2">
+          <button class="btn-success-alt btn-block shadow" data-toggle="modal" data-target="#addUser">
+            <i class="fa fa-search"></i>+
+          </button>
+        </div>
       </div>
+      <div class="blank-space-sm"></div>
+      <table id="customers">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Usuario</th>
+            <th scope="col" class="d-none d-md-table-cell">Correo</th>
+            <th scope="col" class="d-none d-md-table-cell">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios2">
+            <td>
+                {{usuario.userid}}
+            </td>
+            <td>       
+              {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
+            </td>
+            <td>
+              {{usuario.username}}
+            </td>
+            <td class="d-none d-md-table-cell">
+              {{usuario.email}}     
+            </td>
+            <td class="d-none d-md-table-cell">
+              <div class="d-flex justify-content-around">
+                <button (click)='this.editarMono(usuario.userid)' type="button" class="btn-primary-alt">
+                  Editar
+                </button>
+                <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn-danger-alt">
+                  Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!mostrar" class="card-body">
+      <div class="blank-space-sm"></div>
+      <div class="row">
+        <div class="col-8 col-lg-8">
+            <input class="form-control" type="search" placeholder="Buscar" aria-label="Escribe para buscar">
+        </div>
+        <div class="col-4 col-lg-2">
+          <button class="btn-black-alt btn-block shadow"><i class="fa fa-search"></i>buscar</button>
+        </div>
+        <div class="d-block d-lg-none blank-space-sm"></div>
+        <div class="col-12 col-lg-2">
+          <button class="btn-success-alt btn-block shadow" data-toggle="modal" data-target="#addUser">
+            <i class="fa fa-search"></i>+
+          </button>
+        </div>
+      </div>
+      <div class="blank-space-sm"></div>
+      <table  id="customers">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre empresa</th>
+            <th scope="col">Contacto</th>
+            <th scope="col">Usuario</th>
+            <th scope="col" class="d-none  d-md-table-cell">Correo</th>
+            <th scope="col" class="d-none  d-md-table-cell">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let usuario of usuarios">
+            <td>
+              {{usuario.userid}}
+            </td>
+            <td> 
+              {{usuario.nombreempresa}}
+            </td>
+            <td>
+              {{usuario.nombre}} {{usuario.apellidop}} {{usuario.apellidom}}
+            </td>
+            <td>
+              {{usuario.username}}
+            </td>
+            <td class="d-none  d-md-table-cell"> 
+              {{usuario.email}}
+            </td>
+            <td class="d-none  d-md-table-cell">
+              <div class="d-flex justify-content-around">
+                <button (click)='this.editarMono(usuario.userid)' type="button" class="btn-primary-alt">
+                  Editar
+                </button>
+                <button (click)='this.eliminarMono(usuario.userid)' type="button" class="btn-danger-alt">
+                  Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="blank-space"></div>
+</div>
 
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserLabel">Agregar usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de registro -->
+        <form form class="p-5" [formGroup]="myForm"  novalidate>
+          <div class="form-group">
+            <label >Nombre</label><br>  
+            <input type="text" id="nombre" name="nombre" class="form-control" 
+            [(ngModel)]="usuario.nombre" placeholder="Nombre" formControlName="nombre">
+          </div>
 
-      
-  
-  
-<!-- Lista de empresas -->
+          <div class="form-group">
+            <label  class="">Apellido paterno</label><br>
+              <input type="text" id="apellidop" name="apellidop" class="form-control" 
+              [(ngModel)]="usuario.apellidop" placeholder="Apellido paterno"
+                formControlName="apellidop" >
+          </div>
+
+          <div class="form-group">
+            <label  class="">Apellido materno</label><br>
+            <input type="text" id="apellidom" name="apellidom" class="form-control" 
+            [(ngModel)]="usuario.apellidom" placeholder="Apellido materno"
+            formControlName="apellidom">
+          </div>
+          
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                  <label  class="">Tipo de usuario</label><br>
+                  <select class="form-control" id="tipo" name="tipo"
+                    [(ngModel)]="usuario.tipo" 
+                    formControlName="tipo" >
+                    <option value="Auditor">Auditor</option>
+                    <option value="Empresa">Empresa</option>
+                    <option value="Administrador">Administrador</option>
+                  </select>
+              </div>
+              <div class="col">
+                 <label  class="">Empresa</label><br>
+                 <select class="form-control" id="idempresa" name="idempresa"
+                 [(ngModel)]="usuario.idempresa" formControlName="idempresa">
+                 <option  value="null">
+                   Sin empresa
+                 </option>
+                 <option *ngFor="let emp of empresa" [value]="emp.id">
+                     {{emp.nombre}}
+                   </option>
+                 </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label  class="">Usuario</label><br>
+            <input type="text" id="username" name="username" class="form-control" 
+            [(ngModel)]="usuario.username" placeholder="Username"
+              formControlName="username">
+          </div>
+          
+          <div class="form-group">
+            <label  class="">Correo</label><br>
+            <input type="text" id="email" name="email" class="form-control" 
+            [(ngModel)]="usuario.email" placeholder="Email"
+              formControlName="email">
+          </div>
+          
+          <div class="form-group">
+            <label  class="">Contraseña</label><br>
+            <input type="text" id="password" name="password" class="form-control" 
+            [(ngModel)]="usuario.password" type="password" placeholder="Password"
+            formControlName="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-danger-alt" data-dismiss="modal">Cancelar</button>
+        <button  [disabled]="myForm.invalid" (click)="this.agregarusuario()"
+        type="button" class="btn-success-alt-sm">Agregar</button>
+        </div>
+      </div>
+    </div>
+</div>

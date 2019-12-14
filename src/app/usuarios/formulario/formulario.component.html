@@ -7,7 +7,7 @@
 <form form class="border border-light p-5" [formGroup]="myForm"  novalidate>
   <div class="row">
   <div class="col" >
-      <label  class="text-info">ola tony</label><br>  
+      <label  class="text-info">Nombre del usuario</label><br>  
    <input type="text" id="nombre" name="nombre" class="form-control" 
    [(ngModel)]="usuario.nombre" placeholder="Nombre" formControlName="nombre">
 </div>
@@ -43,13 +43,13 @@
 
 <div class="row">
     <div class="col">
-        <label  class="text-info">Username</label><br>
+        <label  class="text-info">Usuario</label><br>
       <input type="text" id="username" name="username" class="form-control" 
       [(ngModel)]="usuario.username" placeholder="Username"
        formControlName="username">
     </div>
     <div class="col">
-        <label  class="text-info">Email</label><br>
+        <label  class="text-info">Correo</label><br>
       <input type="text" id="email" name="email" class="form-control" 
       [(ngModel)]="usuario.email" placeholder="Email"
        formControlName="email">
@@ -61,23 +61,24 @@
 
 <div class="row">
   <div class="col">
-    <label  class="text-info">Empresa</label><br>
-  <select class="form-control" id="idempresa" name="idempresa"
-   [(ngModel)]="usuario.idempresa" formControlName="idempresa">
-   <option  value="null">
-    Sin empresa
-  </option>
-   <option *ngFor="let emp of empresa" [value]="emp.id">
-      {{emp.nombre}}
+    <label  class="text-info">Empresa a la que pertenece</label><br>
+    <select class="form-control" id="idempresa" name="idempresa"
+    [(ngModel)]="usuario.idempresa" formControlName="idempresa">
+    <option  value="null">
+      Sin empresa
     </option>
-  </select>
-</div> 
-<div class="col">
-    <label  class="text-info">Password</label><br>
-  <input type="text" id="password" name="password" class="form-control" 
-  [(ngModel)]="usuario.password" type="password" placeholder="Password"
-   formControlName="password">
-</div></div>
+    <option *ngFor="let emp of empresa" [value]="emp.id">
+        {{emp.nombre}}
+      </option>
+    </select>
+  </div> 
+  <div class="col">
+      <label  class="text-info">Contraseña</label><br>
+    <input type="text" id="password" name="password" class="form-control" 
+    [(ngModel)]="usuario.password" type="password" placeholder="Password"
+    formControlName="password">
+  </div>
+</div>
 
  
 

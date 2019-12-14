@@ -1,0 +1,17 @@
+.btn-danger-alt{
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  background: #e60000;
+  border: 2px solid #e60000;
+  border-radius: 0;
+  color: #f8f9fb;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn-danger-alt:hover{
+  color: #e60000;
+  background: #f8f9fb;
+  border: 2px solid #e60000;
+}
